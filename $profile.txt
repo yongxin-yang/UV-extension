@@ -1,0 +1,23 @@
+function my-uv {
+    param(
+        [Parameter(ValueFromRemainingArguments = $true)]
+        [string[]]$Args
+    )
+
+    # find the real my-uv.exe file in PATH
+    $exe = Get-Command my-uv.exe -ErrorAction SilentlyContinue
+    if (-not $exe) {
+        Write-Error "my-uv.exe ISNOT in the PATH"
+        return
+    }
+
+    # locate my-uv.ps1 in the same floder
+    $scriptPath = Join-Path (Split-Path -Parent $exe.Source) 'my-uv.ps1'
+    if (-not (Test-Path $scriptPath)) {
+        Write-Error "ScriptNotFound：$scriptPath"
+        return
+    }
+
+    # 把所有参数原样转发给脚本
+    & $scriptPath @Args
+}

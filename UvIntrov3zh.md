@@ -38,8 +38,8 @@ uv run train_model.py
    * **重要步骤**: 设置环境变量后，必须关闭并重新打开所有活动的 PowerShell 窗口，配置才能生效。
 
 2. **安装脚本**:
-   * 将 `my-uv.ps1` 脚本放置在 PATH 环境变量包含的目录中，或者
-   * 在 PowerShell 配置文件 (`$PROFILE`) 中创建指向脚本位置的别名。
+   * 将 `my-uv.exe`可执行文件和`my-uv.ps1`脚本放置在 PATH 环境变量包含的目录中，或者
+   * 在 PowerShell 配置文件 (`$PROFILE`) 中创建指向脚本位置的别名，粘贴`$profile.txt`文件中的内容
    * 如果遇到权限问题，您可能需要执行一次 `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser` 命令。
 
 ---
